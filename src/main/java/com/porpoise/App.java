@@ -5,6 +5,8 @@ package com.porpoise;
  */
 public class App
 {
+	private String	greeting	= "hello world!";
+
 	/**
 	 * main entry point
 	 * 
@@ -12,14 +14,22 @@ public class App
 	 */
 	public static void main(final String[] args)
 	{
-		System.out.println(greeting());
+		System.out.println(new App().getGreeting());
 	}
 
 	/**
-	 * 
+	 * @param value
 	 */
-	static String greeting()
+	public void setGreeting(final String value)
 	{
-		return "hello world!";
+		this.greeting = value;
+	}
+
+	/**
+	 * @return the greeting
+	 */
+	public String getGreeting()
+	{
+		return this.greeting;
 	}
 }
