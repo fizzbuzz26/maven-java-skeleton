@@ -2,12 +2,24 @@ package com.porpoise;
 
 /**
  * Hello world!
- *
  */
-public class App 
+public class App
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+	/**
+	 * main entry point
+	 * 
+	 * @param args
+	 */
+	public static void main(final String[] args)
+	{
+		System.out.println(greeting());
+	}
+
+	/**
+	 * 
+	 */
+	static String greeting()
+	{
+		return "hello world!";
+	}
 }
