@@ -18,6 +18,9 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+<!--
 		<nature>org.maven.ide.eclipse.maven2Nature</nature>
+-->
+		<nature>org.scala-ide.sdt.core.scalanature</nature>
 	</natures>
 </projectDescription>

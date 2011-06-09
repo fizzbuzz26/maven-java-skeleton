@@ -8,4 +8,3 @@ lib_managed/
 src_managed/
 project/boot/
 .settings
-.scala_dependencies
