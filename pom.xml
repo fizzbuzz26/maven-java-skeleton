@@ -37,58 +37,63 @@
 
 	</pluginRepositories>
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<testSourceDirectory>src/test/scala</testSourceDirectory>
+		<!-- <sourceDirectory>src/main/scala</sourceDirectory> <testSourceDirectory>src/test/scala</testSourceDirectory> -->
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<inherit>true</inherit>
+					<scalaVersion>${scala.version}</scalaVersion>
+					<args>
+						<arg>-target:jvm-1.5</arg>
+					</args>
+					<sourceDir>src/main/java</sourceDir>
+					<jvmArgs>
+						<jvmArg>-Xms64m</jvmArg>
+						<jvmArg>-Xmx1024m</jvmArg>
+					</jvmArgs>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
+				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-						</manifest>
-						<!-- <manifestFile>src/main/resources/META-INF/manifest.mf</manifestFile> -->
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<downloadSources>true</downloadSources>
+					<buildcommands>
+						<buildcommand>ch.epfl.lamp.sdt.core.scalabuilder</buildcommand>
+					</buildcommands>
+					<additionalProjectnatures>
+						<projectnature>ch.epfl.lamp.sdt.core.scalanature</projectnature>
+					</additionalProjectnatures>
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
+						<classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
+					</classpathContainers>
 				</configuration>
 			</plugin>
 		</plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-eclipse-plugin</artifactId>
-			<configuration>
-				<downloadSources>true</downloadSources>
-				<buildcommands>
-					<buildcommand>ch.epfl.lamp.sdt.core.scalabuilder</buildcommand>
-				</buildcommands>
-				<additionalProjectnatures>
-					<projectnature>ch.epfl.lamp.sdt.core.scalanature</projectnature>
-				</additionalProjectnatures>
-				<classpathContainers>
-					<classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
-					<classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
-				</classpathContainers>
-			</configuration>
-		</plugin>
 	</build>
+	<!-- 
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<configuration>
+					<scalaVersion>${scala.version}</scalaVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	 -->
 
 	<dependencies>
 		<dependency>
