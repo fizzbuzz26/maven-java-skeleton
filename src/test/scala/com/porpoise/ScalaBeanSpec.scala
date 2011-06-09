@@ -13,7 +13,7 @@ import org.scalatest.matchers.ShouldMatchers
  * Spec tests look like this
  */
 @RunWith(classOf[JUnitRunner])
-class ScalaBeanTest extends Spec with ShouldMatchers {
+class ScalaBeanSpec extends Spec with ShouldMatchers {
 
   describe("A Scala Bean") {
     it("should be able to copy itself") {
