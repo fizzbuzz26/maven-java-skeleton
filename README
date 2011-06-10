@@ -1,0 +1,4 @@
+https://github.com/teigen/maven-scalatest-plugin
+
+mvn scalatest:test
+mvn scalatest:gui
